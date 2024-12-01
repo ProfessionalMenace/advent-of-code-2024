@@ -13,7 +13,7 @@ fn main() {
         panic!("couldn't read file {}", why);
     };
 
-    let lines: Vec<&str> = text.lines().flat_map(|line| line.split_whitespace()).collect();
+    let lines: Vec<&str> = text.split_whitespace().collect();
     let mut left: Vec<i64> = Vec::new();
     let mut right: Vec<i64> = Vec::new();
 
