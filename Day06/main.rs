@@ -11,7 +11,6 @@ fn find_start(matrix: &Vec<Vec<u8>>) -> Option<(usize, usize)> {
     return None;
 }
 
-#[allow(dead_code)]
 fn print_matrix(matrix: &Vec<Vec<u8>>) {
     for row in matrix {
         for b in row {
@@ -74,6 +73,7 @@ fn solve(filename: &str) -> i32 {
     let mut matrix: Vec<Vec<u8>> = text.lines().map(|line| line.as_bytes().into()).collect();
     if let Some(start) = find_start(&matrix) {
         walk(&mut matrix, start.0, start.1);
+        print_matrix(&matrix);
         return count(&matrix);
     } else {
         panic!("Couldn't find start");
@@ -81,6 +81,6 @@ fn solve(filename: &str) -> i32 {
 }
 
 fn main() {
-    assert_eq!(solve("input2"), 41);
+    assert_eq!(solve("test"), 41);
     println!("Solution: {}", solve("input"));
 }
