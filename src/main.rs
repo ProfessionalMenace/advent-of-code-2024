@@ -1,5 +1,13 @@
 mod day1;
+mod day2;
+
+macro_rules! solve {
+    ($day:ident) => {
+        $day::solve(concat!("../inputs/", stringify!($day), ".txt"));
+    };
+}
 
 fn main() {
-    day1::solve("../inputs/day1.txt");
+    solve!(day1);
+    solve!(day2);
 }
