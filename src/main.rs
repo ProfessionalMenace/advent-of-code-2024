@@ -1,5 +1,6 @@
 mod day1;
 mod day2;
+mod day3;
 
 macro_rules! solve {
     ($day:ident) => {
@@ -10,4 +11,5 @@ macro_rules! solve {
 fn main() {
     solve!(day1);
     solve!(day2);
+    solve!(day3);
 }
