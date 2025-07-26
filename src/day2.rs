@@ -13,7 +13,7 @@ pub fn solve(filename: &str) {
 
     let part_one = solve_part_one(&parsed_data);
     let part_two = solve_part_two(&parsed_data);
-    
+
     println!("Solutions to day 2:");
     println!("    Part one: {part_one}");
     println!("    Part two: {part_two}");
@@ -21,8 +21,8 @@ pub fn solve(filename: &str) {
 
 fn check_safety(line: &Vec<i32>) -> bool {
     let get_iter = || line.windows(2).map(|window| window[1] - window[0]);
-    let check1 = get_iter().all(|diff| -3 <= diff && diff <= -1); 
-    let check2 = get_iter().all(|diff|  1 <= diff && diff <=  3); 
+    let check1 = get_iter().all(|diff| -3 <= diff && diff <= -1);
+    let check2 = get_iter().all(|diff| 1 <= diff && diff <= 3);
     return check1 || check2;
 }
 
@@ -50,4 +50,3 @@ fn solve_part_two(parsed_data: &Vec<Vec<i32>>) -> usize {
     }
     return ans;
 }
-
