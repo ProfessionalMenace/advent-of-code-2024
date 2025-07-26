@@ -27,7 +27,11 @@ pub fn solve(filename: &str) {
 }
 
 fn solve_part_one(left_column: &Vec<i32>, right_column: &Vec<i32>) -> i32 {
-    left_column.iter().zip(right_column.iter()).map(|(x, y)| (x - y).abs()).sum()
+    left_column
+        .iter()
+        .zip(right_column.iter())
+        .map(|(x, y)| (x - y).abs())
+        .sum()
 }
 
 fn solve_part_two(left_column: &Vec<i32>, right_column: &Vec<i32>) -> i32 {
