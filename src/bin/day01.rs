@@ -1,6 +1,6 @@
 use std::fs;
 
-pub fn parse(path: &str) -> (Vec<i32>, Vec<i32>) {
+fn parse(path: &str) -> (Vec<i32>, Vec<i32>) {
     let text = fs::read_to_string(path).unwrap();
     let numbers: Vec<i32> = text
         .split_whitespace()

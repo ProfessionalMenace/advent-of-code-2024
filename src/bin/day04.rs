@@ -1,6 +1,6 @@
 use std::fs;
 
-pub fn parse(path: &str) -> Vec<Vec<char>> {
+fn parse(path: &str) -> Vec<Vec<char>> {
     fs::read_to_string(path)
         .unwrap()
         .lines()

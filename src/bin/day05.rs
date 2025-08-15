@@ -2,7 +2,7 @@ use std::cmp::Ordering;
 use std::collections::{HashMap, HashSet};
 use std::fs;
 
-pub fn parse(path: &str) -> (Vec<Vec<i32>>, HashMap<i32, HashSet<i32>>) {
+fn parse(path: &str) -> (Vec<Vec<i32>>, HashMap<i32, HashSet<i32>>) {
     let text = fs::read_to_string(path).unwrap();
     let (rules, updates) = text.split_once("\n\n").unwrap();
 
