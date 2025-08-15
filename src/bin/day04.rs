@@ -1,14 +1,8 @@
 use std::fs;
 
-pub fn solve(filename: &str) {
-    let text: String = fs::read_to_string(filename).unwrap();
-    let parsed_text: Vec<Vec<char>> = text.lines().map(|line| line.chars().collect()).collect();
-
-    let part_one = solve_part_one(&parsed_text, "XMAS");
-    let part_two = solve_part_two(&parsed_text);
-    println!("Solutions to day 4:");
-    println!("    Part one: {part_one}");
-    println!("    Part two: {part_two}");
+pub fn parse(path: &str) -> Vec<Vec<char>> {
+    let text: String = fs::read_to_string(path).unwrap();
+    text.lines().map(|line| line.chars().collect()).collect()
 }
 
 fn solve_part_one(mat: &Vec<Vec<char>>, word: &str) -> usize {
@@ -74,3 +68,20 @@ fn solve_part_two(mat: &Vec<Vec<char>>) -> usize {
     }
     return ans;
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_solution() {
+        let parsed_text = parse("inputs/day04.txt");
+
+        let part_one = solve_part_one(&parsed_text, "XMAS");
+        assert_eq!(part_one, 2458);
+
+        let part_two = solve_part_two(&parsed_text);
+        assert_eq!(part_two, 1945);
+   }
+}
+

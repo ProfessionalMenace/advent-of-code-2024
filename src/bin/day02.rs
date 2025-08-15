@@ -1,7 +1,7 @@
 use std::fs;
 
-pub fn solve(filename: &str) {
-    let text = fs::read_to_string(filename).unwrap();
+pub fn parse(path: &str) -> Vec<Vec<i32>> {
+    let text = fs::read_to_string(path).unwrap();
     let mut parsed_data: Vec<Vec<i32>> = Vec::new();
     for line in text.lines() {
         let parsed_line = line
@@ -10,13 +10,7 @@ pub fn solve(filename: &str) {
             .collect();
         parsed_data.push(parsed_line);
     }
-
-    let part_one = solve_part_one(&parsed_data);
-    let part_two = solve_part_two(&parsed_data);
-
-    println!("Solutions to day 2:");
-    println!("    Part one: {part_one}");
-    println!("    Part two: {part_two}");
+    return parsed_data;
 }
 
 fn check_safety(line: &Vec<i32>) -> bool {
@@ -49,4 +43,20 @@ fn solve_part_two(parsed_data: &Vec<Vec<i32>>) -> usize {
         }
     }
     return ans;
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_solution() {
+        let parsed_data = parse("inputs/day02.txt");
+        
+        let part_one = solve_part_one(&parsed_data);
+        assert_eq!(part_one, 334);
+
+        let part_two = solve_part_two(&parsed_data);
+        assert_eq!(part_two, 400);
+    }
 }

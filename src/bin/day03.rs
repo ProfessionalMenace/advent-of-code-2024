@@ -1,15 +1,5 @@
 use std::fs;
 
-pub fn solve(filename: &str) {
-    let text = fs::read_to_string(filename).unwrap();
-    let part_one = solve_part_one(&text);
-    let part_two = solve_part_two(&text);
-
-    println!("Solutions to day 3:");
-    println!("    Part one: {part_one}");
-    println!("    Part two: {part_two}");
-}
-
 fn find_all<'a>(text: &String, search_tokens: Vec<&'a str>) -> Vec<(usize, &'a str)> {
     let mut positions: Vec<(usize, &str)> = Vec::new();
     let mut i: usize = 0;
@@ -76,4 +66,20 @@ fn solve_part_two(text: &String) -> u32 {
         }
     }
     return ans;
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_solution() {
+        let text = fs::read_to_string("inputs/day03.txt").unwrap();
+
+        let part_one = solve_part_one(&text);
+        assert_eq!(part_one, 161289189);
+
+        let part_two = solve_part_two(&text);
+        assert_eq!(part_two, 83595109);
+    }
 }
