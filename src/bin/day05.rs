@@ -79,4 +79,3 @@ mod tests {
         assert_eq!(part_two, 6732);
     }
 }
-

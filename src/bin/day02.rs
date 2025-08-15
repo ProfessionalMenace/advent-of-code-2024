@@ -52,7 +52,7 @@ mod tests {
     #[test]
     fn test_solution() {
         let parsed_data = parse("inputs/day02.txt");
-        
+
         let part_one = solve_part_one(&parsed_data);
         assert_eq!(part_one, 334);
 

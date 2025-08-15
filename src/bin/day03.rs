@@ -22,7 +22,9 @@ fn parse_mul(chunk: &str) -> u32 {
     let mut iter = chunk.chars();
 
     for c in iter.by_ref().take(4) {
-        if c == ',' { break };
+        if c == ',' {
+            break;
+        };
         if let Some(digit) = c.to_digit(10) {
             parsed_lhs = 10 * parsed_lhs + digit;
         } else {
@@ -31,7 +33,9 @@ fn parse_mul(chunk: &str) -> u32 {
     }
 
     for c in iter.by_ref().take(4) {
-        if c == ')' { break };
+        if c == ')' {
+            break;
+        };
         if let Some(digit) = c.to_digit(10) {
             parsed_rhs = 10 * parsed_rhs + digit;
         } else {
@@ -54,14 +58,16 @@ fn solve_part_one(text: &String) -> u32 {
 fn solve_part_two(text: &String) -> u32 {
     let pairs = find_all(text, vec!["mul(", "do()", "don't()"]);
     let mut ans: u32 = 0;
-    let mut enable: bool = true; 
+    let mut enable: bool = true;
     for (i, tok) in pairs {
         match tok {
             "do()" => enable = true,
             "don't()" => enable = false,
-            "mul(" => if enable { 
-                ans += parse_mul(&text[i..]);
-            },
+            "mul(" => {
+                if enable {
+                    ans += parse_mul(&text[i..]);
+                }
+            }
             _ => panic!(),
         }
     }
