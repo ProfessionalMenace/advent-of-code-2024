@@ -69,11 +69,16 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_solution() {
+    fn solution_part_one() {
         let (page_orderings, rules) = parse("inputs/day05.txt");
 
         let part_one = solve_part_one(page_orderings.clone(), &rules);
         assert_eq!(part_one, 5208);
+    }
+
+    #[test]
+    fn solution_part_two() {
+        let (page_orderings, rules) = parse("inputs/day05.txt");
 
         let part_two = solve_part_two(page_orderings.clone(), &rules);
         assert_eq!(part_two, 6732);

@@ -59,11 +59,17 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_solution() {
+    fn solution_part_one() {
         let (left_column, right_column) = parse("inputs/day01.txt");
 
         let part_one = solve_part_one(&left_column, &right_column);
         assert_eq!(part_one, 1222801);
+
+    }
+
+    #[test]
+    fn solution_part_two() {
+        let (left_column, right_column) = parse("inputs/day01.txt");
 
         let part_two = solve_part_two(&left_column, &right_column);
         assert_eq!(part_two, 22545250);

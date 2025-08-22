@@ -77,11 +77,16 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_solution() {
+    fn solution_part_one() {
         let parsed_text = parse("inputs/day04.txt");
 
         let part_one = solve_part_one(&parsed_text, "XMAS");
         assert_eq!(part_one, 2458);
+    }
+
+    #[test]
+    fn solution_part_two() {
+        let parsed_text = parse("inputs/day04.txt");
 
         let part_two = solve_part_two(&parsed_text);
         assert_eq!(part_two, 1945);

@@ -79,11 +79,16 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_solution() {
+    fn solution_part_one() {
         let text = fs::read_to_string("inputs/day03.txt").unwrap();
 
         let part_one = solve_part_one(&text);
         assert_eq!(part_one, 161289189);
+    }
+
+    #[test]
+    fn solution_part_two() {
+        let text = fs::read_to_string("inputs/day03.txt").unwrap();
 
         let part_two = solve_part_two(&text);
         assert_eq!(part_two, 83595109);
