@@ -62,8 +62,7 @@ fn walk(pos: &mut (usize, usize), dir: &mut Direction, mat: &Vec<Vec<u8>>) {
 }
 
 fn grid_walker(mat: &Vec<Vec<u8>>, mut pos: (usize, usize), mut dir: Direction) -> HashSet<(usize, usize)> {
-    // Hash Hash set is ok here
-    let mut walked_path: HashSet<(usize, usize)> = HashSet::from([pos]);
+    let mut walked_path: HashSet<(usize, usize)> = HashSet::new();
     while check_bounds(pos, &mat) {
         walk(&mut pos, &mut dir, &mat);
         walked_path.insert(pos);
@@ -72,7 +71,6 @@ fn grid_walker(mat: &Vec<Vec<u8>>, mut pos: (usize, usize), mut dir: Direction) 
 }
 
 fn loopy_walker(mat: &Vec<Vec<u8>>, mut pos: (usize, usize), mut dir: Direction) -> bool {
-    // TODO Don't use a hash set
     let mut walked_path: HashSet<((usize, usize), Direction)> = HashSet::new();
     while check_bounds(pos, &mat) {
         if walked_path.contains(&(pos, dir)) {
